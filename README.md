@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+Don't let the laughter fool you I'm actually dead on the inside
 	
 ## Technologies
 Technologies used for this project:
