@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+Hello from Cindy
 	
 ## Technologies
 Technologies used for this project:
