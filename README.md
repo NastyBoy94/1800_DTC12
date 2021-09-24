@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* This comment was made by George Rozitis.
 	
 ## Technologies
 Technologies used for this project:
