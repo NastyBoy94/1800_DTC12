@@ -8,7 +8,7 @@
 This browser based web application to ...
 Hello from Cindy, and this is my change
 
-This line was made by George Rozitis.
+This line was made by George Rozitis. Another line here too.
 	
 ## Technologies
 Technologies used for this project:
