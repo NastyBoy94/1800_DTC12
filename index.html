@@ -67,6 +67,46 @@
     text-align: center;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+*.landing_page_image {
+    width: 30px;
+    height: 160px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
     </style>
 
 </head>
@@ -93,11 +133,24 @@
             <h1 class="Welcome_text">Welcome to SmartShopper!</h1>
         </div>
 
-        <div class="d-grid gap-4 col-6 mx-auto p-5">
-            <button class="btn btn-primary" type="button">Log In</button>
-            <button class="btn btn-primary" type="button">Sign Up!</button>
+        <div class="row">
+            <div class="column">
+              <img class="landing_page_image" src="https://www.ictworks.org/sites/default/files/uploaded_pics/2011/desktop_laptop_or_tablet.gif">
+              <img class="landing_page_image" src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/32cd21bed32344f38f50ab7a011d2044_9366/FortaRun_Running_Shoes_2020_Black_FW3719_01_standard.jpg">
+            </div>
+            <div class="column">
+                <img class="landing_page_image" src="https://cdn.shopify.com/s/files/1/0016/2509/6305/products/OpenFarm_Dry_Dog_Food_Lifestyle_2_6e4f03ae-3bfe-4175-8558-f008974fce4a_1000x1000.jpg?v=1616726438">
+                <img class="landing_page_image" src="https://m.media-amazon.com/images/I/91vIUgfOhpL._AC_SL1500_.jpg">
+            </div>
+            <div class="column">
+                <img class="landing_page_image" src="https://post.healthline.com/wp-content/uploads/2020/04/makeup_composition_overhead-732x549-thumbnail.jpg">
+                <img class="landing_page_image" src="https://cdnimg.webstaurantstore.com/uploads/blog/2016/3/full-brown-bag.jpg">
+            </div>
+            <div class="column">
+                <img class="landing_page_image" src="https://thumbs.dreamstime.com/z/pair-hockey-skates-hockey-stick-puck-skates-skate-pair-hockey-hockey-stick-game-sport-108455047.jpg">
+                <img class="landing_page_image" src="https://bananarepublic.gap.com/webcontent/0019/623/525/cn19623525.jpg">
+            </div>
         </div>
-
 
         <div class="footer">
             <h4>Your smarter online shopping buddy.</h4>
