@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to SmartShopper!</title>
+</head>
+
+<body>
+    <ul class="filter_bar">Filter by:
+        <li class="filter vendor">
+            <input type="checkbox">
+            <label for="vendor">Vendor</label>
+            <input type="text" id="vendor" placeholder="Input Vendor" width="50px">
+        </li>
+        <li class="filter reviews">
+            <input type="checkbox" id="reviews">
+            <label for="reviews">Reviews</label>
+        </li>
+        <li class="filter price">
+            <input type="checkbox" id="price">
+            <label for="price">Price</label>
+        </li>
+        <li class="filter ship_speed">
+            <input type="checkbox" id="ship_speed">
+            <label for="ship_speed">Shipping Speed</label>
+        </li>
+        <li class="filter availability">
+            <input type="checkbox" id="availability">
+            <label for="availability">Availability</label>
+        </li>
+    </ul>
+
+
+    <style>
+        .filter_bar {
+            width: 250px;
+            background-color: lightgray;
+            padding-bottom: 400px;
+        }
+
+        .filter {
+            list-style: none;
+        }
+
+        .vendor {
+            padding-top: 25px;
+        }
+    </style>
+</body>
+
+</html>

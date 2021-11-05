@@ -9,11 +9,23 @@ body
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
+.navbar {
+  display: grid;
+  grid-template-columns: 3fr, 7fr;
+  grid-template-rows: 30px;
+  grid-template-areas:
+  "menu navbar";
+}
+
+.searchBar {
+  grid-area: navbar;
+}
+
 #menuToggle
 {
   display: block;
   position: relative;
-  top: 50px;
+  top: 30px;
   left: 50px;
   
   z-index: 1;
@@ -156,12 +168,8 @@ body {
   .wrapper {
     width: 100%;
     max-width: 31.25rem;
-    margin: 6rem auto;
-    position: relative;
-    top: 50%;
-    float: top;
   }
-  
+
   .label {
     font-size: .625rem;
     font-weight: 400;

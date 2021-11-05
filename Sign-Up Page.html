@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sign-Up Page</title>
+    <meta name="DTC-12 Sign-Up Page" content="Smartshopper Sign-Up Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap FirebaseUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+</head>
+
+<body class="signup">
+
+    <!-------------------------------------->
+    <!-- The following is HTML for layout -->
+    <!-------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <div class="container-fluid">
+            <a class="navbar-brand">Smartshopper</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="login.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Shop Now!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="welcome">
+        <h1 class="greeting">Welcome to SmartShopper!</h1>
+        <div class="signup_prompt">
+            <h3 class="display-4 signup">New to SmartShopper?</h3>
+            <a href="login.html" class="btn btn-info signup signup_btn" role="button">Sign up now!</a><br>
+        </div>
+
+        <div class="login_prompt">
+            <h3 class="login_msg">Already a member?</h3>
+            <a href="login.html" class="btn btn-info login login_btn" role="button">Login!</a><br>
+        </div>
+    </div>
+
+    <style>
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .welcome {
+            display: grid;
+            grid-template-rows: 1fr, 3fr, 1fr, 1fr, 1fr, 1fr;
+            grid-template-areas:
+            "header"
+            "greeting"
+            "signup"
+            "signup"
+            "login"
+            "login";
+        }
+
+        .navbar {
+            grid-area: header;
+        }
+
+        .login_prompt {
+            grid-area: login;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .login_msg {
+            font-weight: normal;
+        }
+
+        .signup_prompt {
+            grid-area: signup;
+            text-align: center;
+        }
+
+        .signup_btn {
+            margin: 5px
+        }
+
+        .login_btn {
+            margin: 5px
+        }
+
+        .greeting {
+            grid-area: greeting;
+            text-align: center;
+            padding-bottom: 100px;
+            padding-top: 25px;
+        }
+    </style>
+
+</body>
+</html>
