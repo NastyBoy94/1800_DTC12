@@ -6,8 +6,10 @@ body
   /* make it look decent enough */
   background: white;
   color: #cdcdcd;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  /* font-family: "Avenir Next", "Avenir", sans-serif; */
+  font-family: 'Roboto', Arial, sans-serif;
 }
+
 
 .navbar {
   display: grid;
@@ -25,7 +27,7 @@ body
 {
   display: block;
   position: relative;
-  top: 30px;
+  top: 60px;
   left: 50px;
   
   z-index: 1;
@@ -161,14 +163,13 @@ body
   transform: none;
 }
 
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-  }
   
   .wrapper {
     width: 100%;
     max-width: 31.25rem;
-  }
+    position: relative;
+    right: 50%;
+}
 
   .label {
     font-size: .625rem;
@@ -176,13 +177,16 @@ body {
     text-transform: uppercase;
     letter-spacing: +1.3px;
     margin-bottom: 1rem;
+    color: magenta;
   }
   
   .searchBar {
-    width: 100%;
+    width: 200%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    /* position: relative;
+    right: 50%; */
   }
   
   #searchQueryInput {
@@ -215,11 +219,9 @@ body {
     top: 25px;
     right: 50%;
   }
-
 .search-container input {
     width: 200%;
 }
-
 .topnav input[type=text] {
     float: right;
     padding: 6px;
