@@ -5,47 +5,53 @@
     <title>Sign-Up Page</title>
     <meta name="DTC-12 Sign-Up Page" content="Smartshopper Sign-Up Page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="sign-up.css">
+
 
     <!-- Bootstrap FirebaseUI CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 </head>
 
-<body class="signup">
+<body>
+    <div class="Sign-Up">
+        <nav role="navigation" class="navbar">
+            <div id="menuToggle" class="dropdown_menu">
+              <!--
+             hidden checkbox is used as click reciever,
+              so you can use the :checked selector on it.
+              -->
+              <input type="checkbox">
 
-    <!-------------------------------------->
-    <!-- The following is HTML for layout -->
-    <!-------------------------------------->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand">Smartshopper</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="login.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Log In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Shop Now!</a>
-                    </li>
-                </ul>
+              <!--
+             spans to act as a hamburger.
+              -->
+              <span></span>
+              <span></span>
+              <span></span>
+
+              <ul id="menu">
+                <a href="#"><li>Home</li></a>
+                <a href="#"><li>Setting</li></a>
+                <a href="#"><li>Option1</li></a>
+                <a href="#"><li>Option2</li></a>
+              </ul>
             </div>
-        </div>
-    </nav>
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
+            <div class="wrapper">
+              <br>
+              <div class="label">SmartShopper</div>
+              <div class="searchBar">
+                <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value="" />
+                <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+                  <svg style="width:24px;height:24px" viewbox="0 0 24 24"><path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+        </nav>
+    </div>
     <div class="welcome">
         <h1 class="greeting">Welcome to SmartShopper!</h1>
         <div class="signup_prompt">
@@ -58,58 +64,6 @@
             <a href="login.html" class="btn btn-info login login_btn" role="button">Login!</a><br>
         </div>
     </div>
-
-    <style>
-        .navbar-nav {
-            margin-left: auto;
-        }
-
-        .welcome {
-            display: grid;
-            grid-template-rows: 1fr, 3fr, 1fr, 1fr, 1fr, 1fr;
-            grid-template-areas:
-            "header"
-            "greeting"
-            "signup"
-            "signup"
-            "login"
-            "login";
-        }
-
-        .navbar {
-            grid-area: header;
-        }
-
-        .login_prompt {
-            grid-area: login;
-            text-align: center;
-            padding-top: 100px;
-        }
-
-        .login_msg {
-            font-weight: normal;
-        }
-
-        .signup_prompt {
-            grid-area: signup;
-            text-align: center;
-        }
-
-        .signup_btn {
-            margin: 5px
-        }
-
-        .login_btn {
-            margin: 5px
-        }
-
-        .greeting {
-            grid-area: greeting;
-            text-align: center;
-            padding-bottom: 100px;
-            padding-top: 25px;
-        }
-    </style>
-
 </body>
+
 </html>
