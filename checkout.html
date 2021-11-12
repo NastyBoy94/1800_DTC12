@@ -3,62 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="checkout.css">
-        <link rel="JavaScript" href="checkout.js">
         <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>Shopper Profile</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>Checkout</title>
     </head>
 
     <body class="bg.light">
-        <nav role="navigation" class="navbar">
-            <div id="menuToggle">
-              <!--
-             hidden checkbox is used as click reciever,
-              so you can use the :checked selector on it.
-              -->
-              <input type="checkbox" />
-
-              <!--
-             spans to act as a hamburger.
-              -->
-              <span></span>
-              <span></span>
-              <span></span>
-
-              <ul id="menu">
-                <a href="#"><li>Home</li></a>
-                <a href="#"><li>Setting</li></a>
-                <a href="#"><li>Account</li></a>
-                <a href="#"><li>Option2</li></a>
-              </ul>
-            </div>
-            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
-            <div class="wrapper">
-              <br>
-              <div class="label">SmartShopper</div>
-              <div class="searchBar">
-                <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value="" />
-                <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-                  <svg style="width:24px;height:24px" viewbox="0 0 24 24"><path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                  </svg>
-                </button>
-                <i class="fa fa-heart fa_custom"></i>
-              </div>
-            </div>
-
-            <!-- <div class="topnav"></div>
-              <div class="search-container">
-                <form action="/action_page.php">
-                  <input type="text" placeholder="Search.." name="search">
-                  <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-              </div> -->
-
-          </nav>
-
-
           <div class="container">
             <div class="py-5 text-center">
                 <h2>Checkout</h2>
@@ -102,23 +52,21 @@
                             <span>Total (CAD)</span>
                             <strong>$20</strong>
                         </li>
-                    </ul>
-                    <form class="card p-2">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-secondary">Redeem</button>
-                            </div>
+                          <input type="text" class="form-control" placeholder="Promo code">
+                          <div class="input-group-append">
+                              <button type="submit" class="btn btn-secondary">Redeem</button>
+                          </div>
                         </div>
-                    </form>
+                    </ul>
                 </div>
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3">Billing address</h4>
-                    <form class="needs-validation" novalidate>
+                    <form class="row g-3 needs-validation" novalidate>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">First name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="First Name" value="" required>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
                                 <div class="invalid-feedback"> Valid first name is required. </div>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -244,10 +192,32 @@
 
 
 
+        <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                        }
+
+                form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+        </script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     </body>
 </html>
