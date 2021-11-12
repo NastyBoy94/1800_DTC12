@@ -12,7 +12,7 @@
         <li class="filter vendor">
             <input type="checkbox">
             <label for="vendor">Vendor</label>
-            <input type="text" id="vendor" placeholder="Input Vendor" width="50px">
+            <input type="text" placeholder="Input Vendor" width="50px">
         </li>
         <li class="filter reviews">
             <input type="checkbox" id="reviews">
@@ -32,12 +32,38 @@
         </li>
     </ul>
 
+    <div class="dropdown">
+        <button class="dropbtn">Sort By</button>
+        <div class="dropdown-content">
+            <a href="#">
+                <input type="radio">
+                <label for="high_low">Price: High to Low</label>
+            </a>
+            <a href="#">
+                <input type="radio">
+                <label for="low_high">Price: Low to High</label>
+            </a>
+            <a href="#">
+                <label for="high_low">Review: High to Low</label>
+            </a>
+            <a href="#">
+                <label for="low_high">Review: Low to High</label>
+            </a>
+            </div>
+        </div>
+
 
     <style>
+        body {
+            background: white;
+            color: #cdcdcd;
+            /* font-family: "Avenir Next", "Avenir", sans-serif; */
+            font-family: 'Roboto', Arial, sans-serif;
+        }
         .filter_bar {
             width: 250px;
             background-color: lightgray;
-            padding-bottom: 400px;
+            padding-bottom: 100px;
         }
 
         .filter {
@@ -47,6 +73,49 @@
         .vendor {
             padding-top: 25px;
         }
+
+
+        /* Dropdown Button */
+        .dropbtn {
+            background-color: lightgray;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: magenta;}
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {display: block;}
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {background-color: darkgray;}
     </style>
 </body>
 
