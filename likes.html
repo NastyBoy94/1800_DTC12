@@ -68,6 +68,50 @@
 <div class="paragraph">
     <p>Products I like</p>
 </div>
-    
+<template id="hikeCardTemplate">
+    <div class="card">
+        <img class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">placeholder</h5>
+            <p class="card-length">placeholder</p>
+            <a href="review.html" class="link-primary">Write a review</a>
+            <br>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+            </p>
+            <a href="#" class="btn btn-primary" style="float: right">Read more</a>
+        </div>
+    </div>
+</template>
+<div class="container">
+    <div class="card-group" id="hikeCardGroup">
+    </div>
+</div>
+
+<script>
+    function writeLikes() {
+            //define a variable for the collection you want to create in Firestore to populate data
+            var likesRef = db.collection("Likes");
+
+            likesRef.add({
+                code: "hydro_flask",
+                name: "Standard Mouth Bottle with Standard Flex Cap - 21 Oz",
+                seller: "Altitude Sport",
+                company: "Hydroflask",
+
+            });
+            likesRef.add({
+                code: "Nalgene-Retro",
+                name: "32oz Wide Mouth Tritan - Retro Clementine",
+                seller: "Naglene",
+                company: "Naglene",
+            });
+            likesRef.add({
+                code: "Yellow_water_bottle",
+                name: "Day Hydration Tracking Water Bottle",
+                seller: "Nordstrom",
+                company: "Blink"
+            });
+        }
+</script>
 </body>
 </html>
