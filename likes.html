@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="likes.css" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
     <title>SmartShopper - Likes</title>
 
     <!-- Firebase CDN -->
@@ -44,7 +45,7 @@
           <a href="#"><li>Home</li></a>
           <a href="#"><li>Setting</li></a>
           <a href="#"><li>Account</li></a>
-          <a href="#"><li>Option2</li></a>
+          <a href="#"><li>Cart</li></a>
         </ul>
       </div>
       <link
@@ -106,20 +107,19 @@
       <div class="card-group" id="hikeCardGroup"></div>
     </div>
     <script>
-      function test(){
-        firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-                    db.collection("users").doc(user.uid).collection("likes").add({
-                      test: 123,
-                      test2: 1234
-                    })   
-                } else {
-                    // No user is signed in.
-										console.log("no user signed in");
-                }
+      function test() {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            db.collection("users").doc(user.uid).collection("likes").add({
+              test: 123,
+              test2: 1234,
             });
+          } else {
+            // No user is signed in.
+            console.log("no user signed in");
+          }
+        });
       }
-
     </script>
 
     <script>
