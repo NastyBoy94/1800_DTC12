@@ -152,7 +152,6 @@
         </div>
         <p style="color:black">Shipping Time: 15 hours</p>
         <p style="color:black">$15.99</p>
-<<<<<<< HEAD
     </div> -->
     <script>
         //------------------------------------------------------------------
@@ -196,78 +195,3 @@
 
 </body>
 </html>
-=======
-    </div>
-    
-    <script>
-        /*
-        async function getCSVdata() {
-            const response = await fetch('./olympic-medals.csv');
-            const data = await response.text();
-            const list = data.split('\n').slice(1);
-            list.forEach(row => {
-                let columns = row.split(',');
-                let country = columns[0];
-                let medals_gold = columns[1];
-                let medals_silver = columns[2];
-                let medals_bronze = columns[3];
-
-                let details = "Do you know what sucks? ";
-                details += country + "! They only got " + medals_gold + " gold, " + medals_silver + " silver, and " + medals_bronze + " bronze! ";
-                details += "But the great country of your mom has " + (medals_gold * medals_silver * medals_bronze) + " gold medals!";
-
-                if (country.includes("S")) {
-                    console.log(country);
-                    db.collection("countries").add({
-                        name: country,
-                        details: details
-                    })
-                }
-            })
-        }
-        */
-
-        async function addCSVData() {
-            const response = await fetch('./data/apparel.csv');
-            const data = await response.text();
-            const list = data.split('\n').slice(1);
-            list.forEach(row => {
-                /* namely the customer ID, price, item name, and description */
-                let re = /(([A-Z]|[a-z]|[0-9]|-|\s|\.|:|\/|\_)*,{1}|("{1}[^"]*"{1}),{1})/;
-                let columns = row.split(re);
-                let name = columns[5];
-                name = name.substring(0, name.length - 1);
-                let description = columns[9]
-                description = description.substring(0, description.length - 1);
-                let price = columns[77]
-                price = price.substring(0, price.length - 1);
-
-                if (name !== undefined) {
-                    console.log(name, description, price);
-                    // db.collection("Items").add({
-                    //     name: name,
-                    //     description: description,
-                    //     price: price,
-                    // });
-                }
-            });
-        }
-
-        function displaySearch() {
-            
-
-            db.collection("Likes")
-            .get()
-            .then((allLikes) => {
-                allLikes.forEach((doc) => {
-                    var itemName = doc.data().name;
-                    if (itemName.includes("S")) {
-                        console.log(itemName);
-                    }
-                });
-            });
-        }
-    </script>
-</body>
-</html>
->>>>>>> 2f84f4f87f73560a83173c98ba280cdc95fab8ad
