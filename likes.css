@@ -354,6 +354,11 @@ body
   text-align: top;
 }
 
+.search-item-info i {
+  display: block;
+  margin-left: auto;
+}
+
 .container {
   display: grid;
   margin-left: 5%;
