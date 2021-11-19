@@ -364,6 +364,8 @@ body
   margin-left: 6%;
   margin-right: 5%;
   grid-template-columns: 1fr;
+  overflow: auto;
+  overflow-y: hidden;
   align-items: center;
   color: #232323;
 }
@@ -376,20 +378,6 @@ body
   margin-right: auto;
 }
 
-/* .search-container {
-    float: right;90
-    position: relative;
-    top: 25px;
-    right: 50%;
-  }
-.search-container input {
-    width: 200%;
+.container img {
+  width: 120%;
 }
-.topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-  } */
