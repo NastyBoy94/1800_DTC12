@@ -361,9 +361,12 @@ body
 
 .container {
   display: grid;
-  margin-left: 5%;
+  margin-left: 6%;
   margin-right: 5%;
   grid-template-columns: 1fr;
+  overflow: auto;
+  overflow-y: hidden;
+  align-items: center;
 }
 
 .container img {
@@ -374,8 +377,11 @@ body
   margin-right: auto;
 }
 
+.container img {
+  width: 120%;
+}
 /* .search-container {
-    float: right;
+    float: right;90
     position: relative;
     top: 25px;
     right: 50%;
