@@ -69,10 +69,10 @@ body
 
 .navbar {
   display: grid;
-  grid-template-columns: 3fr, 7fr;
-  grid-template-rows: 30px;
+  grid-template-columns: 2fr, 2fr, 6fr;
   grid-template-areas:
-  "menu navbar";
+  "hamburger navbar"
+  "hamburger navbar";
 }
 
 .searchBar {
@@ -242,7 +242,7 @@ body
     margin-bottom: 1rem;
     color: magenta;
     position: relative;
-    left: 55%;
+    left: 80%;
   }
 
   .searchBar {
