@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="likes.css">
+    <link rel="stylesheet" href="styles/likes.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>SmartShopper - Search</title>
 
@@ -17,6 +17,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+    <script src="/scripts/firebaseAPI.js"></script>
 </head>
 <body>
     <nav role="navigation" class="navbar">
@@ -95,6 +97,7 @@
                 <img src="./images/hydro_flask.jpg"/>
             </div>
             <div class="search-item-info">
+                <i class="fa fa-heart fa_custom" onclick="writeLikes()"></i>
                 <h2>Hydro Flask</h2>
                 <p>A really good water bottle.</p>
             </div>
@@ -124,4 +127,75 @@
         <p style="color:black">Shipping Time: 15 hours</p>
         <p style="color:black">$15.99</p>
     </div>
+    
+    <script>
+        /*
+        async function getCSVdata() {
+            const response = await fetch('./olympic-medals.csv');
+            const data = await response.text();
+            const list = data.split('\n').slice(1);
+            list.forEach(row => {
+                let columns = row.split(',');
+                let country = columns[0];
+                let medals_gold = columns[1];
+                let medals_silver = columns[2];
+                let medals_bronze = columns[3];
+
+                let details = "Do you know what sucks? ";
+                details += country + "! They only got " + medals_gold + " gold, " + medals_silver + " silver, and " + medals_bronze + " bronze! ";
+                details += "But the great country of your mom has " + (medals_gold * medals_silver * medals_bronze) + " gold medals!";
+
+                if (country.includes("S")) {
+                    console.log(country);
+                    db.collection("countries").add({
+                        name: country,
+                        details: details
+                    })
+                }
+            })
+        }
+        */
+
+        async function addCSVData() {
+            const response = await fetch('./data/apparel.csv');
+            const data = await response.text();
+            const list = data.split('\n').slice(1);
+            list.forEach(row => {
+                /* namely the customer ID, price, item name, and description */
+                let re = /(([A-Z]|[a-z]|[0-9]|-|\s|\.|:|\/|\_)*,{1}|("{1}[^"]*"{1}),{1})/;
+                let columns = row.split(re);
+                let name = columns[5];
+                name = name.substring(0, name.length - 1);
+                let description = columns[9]
+                description = description.substring(0, description.length - 1);
+                let price = columns[77]
+                price = price.substring(0, price.length - 1);
+
+                if (name !== undefined) {
+                    console.log(name, description, price);
+                    // db.collection("Items").add({
+                    //     name: name,
+                    //     description: description,
+                    //     price: price,
+                    // });
+                }
+            });
+        }
+
+        function displaySearch() {
+            
+
+            db.collection("Likes")
+            .get()
+            .then((allLikes) => {
+                allLikes.forEach((doc) => {
+                    var itemName = doc.data().name;
+                    if (itemName.includes("S")) {
+                        console.log(itemName);
+                    }
+                });
+            });
+        }
+    </script>
 </body>
+</html>
