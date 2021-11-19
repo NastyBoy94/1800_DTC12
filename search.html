@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/likes.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>SmartShopper - Search</title>
 
     <!-- Firebase CDN -->
@@ -71,8 +73,32 @@
         </div>
     </nav>
     <br><br><br><br><br>
-    <div id="search-info">
-        <!-- <div class="sorted-by">
+
+
+    <!-- Templates for general use, not displayed -->
+    <template id="CardTemplate">
+        <div class="card py-2 mx-2" style="width: 18rem;">
+            <img class="card-image card-img-top" src=" ..." alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a class="btn btn-primary card-href">Get Details</a>
+            </div>
+        </div>
+    </template>
+
+    <div class="container">
+        <h1>Your Items gallery</h1>
+        <!-- Here is container for cards  -->
+        <div class="container">
+            <div id="Items-go-here" class="row row-cols-auto">
+
+            </div>
+        </div>
+    </div>
+    <!-- <div id="search-info">
+        <div class="sorted-by">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">
@@ -91,7 +117,7 @@
                     Shipping Time
                 </label>
             </div>
-        </div> -->
+        </div>
         <br>
         <div class="search-item">
             <div class="search-item-picture">
@@ -127,76 +153,46 @@
         </div>
         <p style="color:black">Shipping Time: 15 hours</p>
         <p style="color:black">$15.99</p>
-    </div>
-    
+    </div> -->
     <script>
-        /*
-        async function getCSVdata() {
-            const response = await fetch('./olympic-medals.csv');
-            const data = await response.text();
-            const list = data.split('\n').slice(1);
-            list.forEach(row => {
-                let columns = row.split(',');
-                let country = columns[0];
-                let medals_gold = columns[1];
-                let medals_silver = columns[2];
-                let medals_bronze = columns[3];
+        //------------------------------------------------------------------
+        // Read from firestore to get a collection of hikes (of variable length)
+        // Then for each hike in the list,
+        // create a new "card" from the "template"
+        // update thet title and text, and other ID's
+        // attach it to the gallery div
+        //-------------------------------------------------------------------
+        function displayCards(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
 
-                let details = "Do you know what sucks? ";
-                details += country + "! They only got " + medals_gold + " gold, " + medals_silver + " silver, and " + medals_bronze + " bronze! ";
-                details += "But the great country of your mom has " + (medals_gold * medals_silver * medals_bronze) + " gold medals!";
+            db.collection(collection).get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => {    //iterate thru each doc
+                        var title = doc.data().name;
+                        var details = doc.data().details;
+                        let newcard = CardTemplate.content.cloneNode(true);
 
-                if (country.includes("S")) {
-                    console.log(country);
-                    db.collection("countries").add({
-                        name: country,
-                        details: details
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = details;
+                        newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg";  //hikes.jpg
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+                        //attach to gallery
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                        i++;
                     })
-                }
-            })
-        }
-        */
-
-        async function addCSVData() {
-            const response = await fetch('./data/apparel.csv');
-            const data = await response.text();
-            const list = data.split('\n').slice(1);
-            list.forEach(row => {
-                /* namely the customer ID, price, item name, and description */
-                let re = /(([A-Z]|[a-z]|[0-9]|-|\s|\.|:|\/|\_)*,{1}|("{1}[^"]*"{1}),{1})/;
-                let columns = row.split(re);
-                let name = columns[5];
-                name = name.substring(0, name.length - 1);
-                let description = columns[9]
-                description = description.substring(0, description.length - 1);
-                let price = columns[77]
-                price = price.substring(0, price.length - 1);
-
-                if (name !== undefined) {
-                    console.log(name, description, price);
-                    // db.collection("Items").add({
-                    //     name: name,
-                    //     description: description,
-                    //     price: price,
-                    // });
-                }
-            });
+                })
         }
 
-        function displaySearch() {
-            
+        displayCards("Items")
 
-            db.collection("Likes")
-            .get()
-            .then((allLikes) => {
-                allLikes.forEach((doc) => {
-                    var itemName = doc.data().name;
-                    if (itemName.includes("S")) {
-                        console.log(itemName);
-                    }
-                });
-            });
-        }
     </script>
+
 </body>
 </html>
