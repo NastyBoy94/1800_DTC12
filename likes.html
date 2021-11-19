@@ -87,7 +87,7 @@
     <div class="paragraph">
       <p>Products I like</p>
     </div>
-    <template id="hikeCardTemplate">
+    <template id="likeCardTemplate">
       <div class="card">
         <img class="card-img-top" />
         <div class="card-body">
@@ -104,7 +104,7 @@
       </div>
     </template>
     <div class="container">
-      <div class="card-group" id="hikeCardGroup"></div>
+      <div class="card-group" id="likeCardGroup"></div>
     </div>
     <script>
       function test(){
@@ -151,29 +151,29 @@
         });
       }
 
-      function displayHikes() {
-        let hikeCardTemplate = document.getElementById("hikeCardTemplate");
-        let hikeCardGroup = document.getElementById("hikeCardGroup");
+      function displayLikes() {
+        let likeCardTemplate = document.getElementById("likeCardTemplate");
+        let likeCardGroup = document.getElementById("likeCardGroup");
 
         db.collection("Likes")
           .get()
-          .then((allHikes) => {
-            allHikes.forEach((doc) => {
+          .then((allLikes) => {
+            allLikes.forEach((doc) => {
               var likeName = doc.data().name; //gets the name field
               var likeID = doc.data().code; //gets the unique ID field
               var likePrice = doc.data().price; //gets the length field
 
-              let testHikeCard = hikeCardTemplate.content.cloneNode(true);
-              testHikeCard.querySelector(".card-title").innerHTML = likeName;
-              testHikeCard.querySelector(".card-length").innerHTML = likePrice;
-              testHikeCard.querySelector("a").onclick = () =>
-                setHikeData(likeID);
-              testHikeCard.querySelector("img").src = `./images/${likeID}.jpg`;
-              hikeCardGroup.appendChild(testHikeCard);
+              let testLikeCard = likeCardTemplate.content.cloneNode(true);
+              testLikeCard.querySelector(".card-title").innerHTML = likeName;
+              testLikeCard.querySelector(".card-length").innerHTML = likePrice;
+              testLikeCard.querySelector("a").onclick = () =>
+                setLikeData(likeID);
+              testLikeCard.querySelector("img").src = `./images/${likeID}.jpg`;
+              likeCardGroup.appendChild(testLikeCard);
             });
           });
       }
-      displayHikes();
+      displayLikes();
     </script>
   </body>
 </html>
