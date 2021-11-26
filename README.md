@@ -33,11 +33,11 @@ Content of the project folder:
 ├──
 ├──
 ├──
+├── login.html               # Landing page: this is what the user sees when they first arrive at our app
 ├──
 ├──
 ├──
 ├──
-├── index.html               # landing HTML file, this is what users see when you come to url
 └── template.html
 
 It has the following subfolders and files:
@@ -46,7 +46,10 @@ It has the following subfolders and files:
 ├── images                   # Folder for images
     /examplepicture.jpg      #
 ├── old-designs              # Previous iterations of various webpages that are no longer in use
-    /index.html
+    /index.html              # Old landing page, no longer in use
+    /landing.html            # Old post-sign-in page: what the user sees after logging in
+    /profile.html            # Old profile page
+    /sign-up-page.html       # Old sign up page
 ├── scripts                  # Folder for scripts, including both bootstrap/firebase scripts as well as custom ones
     /sameplescript.js        #
 ├── styles                   # Folder for custom styles that aren't part of firebase or bootstrap
