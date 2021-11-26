@@ -94,6 +94,7 @@
         <img class="card-img-top" />
         <div class="card-body">
           <h5 class="card-title">placeholder</h5>
+          <p class="card-text">placeholder</p>
           <p class="card-length">placeholder</p>
           <!-- <a href="review.html" class="link-primary">Write a review</a>
           <br /> -->
@@ -152,23 +153,50 @@
         let likeCardTemplate = document.getElementById("likeCardTemplate");
         let likeCardGroup = document.getElementById("likeCardGroup");
 
-        db.collection("Likes")
-          .get()
-          .then((allLikes) => {
-            allLikes.forEach((doc) => {
-              var likeName = doc.data().name; //gets the name field
-              var likeID = doc.data().code; //gets the unique ID field
-              var likePrice = doc.data().price; //gets the length field
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            // User logged in already or has just logged in.
+            currentUser = db.collection("users").doc(user.uid).collection("Likes");
+            currentUser.get()
+            .then((allLikes) => {
+              allLikes.forEach((doc) => {
+                var likeName = doc.data().name;
+                var likeDescription = doc.data().description;
+                var likeImage = doc.data().image;
+                var likePrice = doc.data().price;
+                console.log(likeName, likeDescription, likeImage, likePrice);
+                let testLikeCard = likeCardTemplate.content.cloneNode(true);
+                testLikeCard.querySelector(".card-title").innerHTML = likeName;
+                testLikeCard.querySelector(".card-text").innerHTML = likeDescription;
+                testLikeCard.querySelector(".card-img-top").src = likeImage;
+                testLikeCard.querySelector(".card-length").innerHTML = likePrice;
+                testLikeCard.querySelector("a").onclick = () =>
+                  setLikeData(likeDescription);
+                likeCardGroup.appendChild(testLikeCard);
+              })
+            })
+        } else {
+            // User not logged in or has just logged out.
+        }
+        });
 
-              let testLikeCard = likeCardTemplate.content.cloneNode(true);
-              testLikeCard.querySelector(".card-title").innerHTML = likeName;
-              testLikeCard.querySelector(".card-length").innerHTML = likePrice;
-              testLikeCard.querySelector("a").onclick = () =>
-                setLikeData(likeID);
-              testLikeCard.querySelector("img").src = `./images/${likeID}.jpg`;
-              likeCardGroup.appendChild(testLikeCard);
-            });
-          });
+      //   db.collection("Likes")
+      //     .get()
+      //     .then((allLikes) => {
+      //       allLikes.forEach((doc) => {
+      //         var likeName = doc.data().name; //gets the name field
+      //         var likeID = doc.data().code; //gets the unique ID field
+      //         var likePrice = doc.data().price; //gets the length field
+
+      //         let testLikeCard = likeCardTemplate.content.cloneNode(true);
+      //         testLikeCard.querySelector(".card-title").innerHTML = likeName;
+      //         testLikeCard.querySelector(".card-length").innerHTML = likePrice;
+      //         testLikeCard.querySelector("a").onclick = () =>
+      //           setLikeData(likeID);
+      //         testLikeCard.querySelector("img").src = `./images/${likeID}.jpg`;
+      //         likeCardGroup.appendChild(testLikeCard);
+      //       });
+      //     });
       }
       displayLikes();
     </script>

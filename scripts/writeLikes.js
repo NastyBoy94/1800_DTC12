@@ -71,7 +71,7 @@ function addUserLikes() {
     });
   }
 
-function clickME(heartID) {
+function addLikesToUser(heartID) {
     itemSelected = db.collection("Items");
     itemSelected.get()
         .then(snap => {
@@ -79,8 +79,30 @@ function clickME(heartID) {
             snap.forEach(doc => {    //iterate thru each doc
                 var itemName = document.getElementById('ctitle' + heartID).innerHTML;
                 if (doc.data().name === itemName) {
+                    firebase.auth().onAuthStateChanged((user) => {
+                        if (user) {
+                            // User logged in already or has just logged in.
+                            currentUser = db.collection("users").doc(user.uid).collection("Likes");
+                            if (doc.id in currentUser.get() === false) {
+                                var itemName = document.getElementById('ctitle' + heartID).innerHTML;
+                                var itemText = document.getElementById('ctext' + heartID).innerHTML;
+                                var itemImage = document.getElementById('cimage' + heartID).src;
+                                var itemPrice = document.getElementById('cprice' + heartID).innerHTML;
+                                currentUser.doc(doc.id).set({
+                                    name: itemName,
+                                    description: itemText,
+                                    image: itemImage,
+                                    price: itemPrice
+                                })
+                                console.log('added to likes');
+                            }
+                    console.log(doc.id);
                     console.log(doc.data());
-                }
+                        } else {
+                            // User not logged in or has just logged out.
+                        }
+                    });
+                 }
                 // var title = doc.data().name;
                 // var details = doc.data().description;
                 // var cost = doc.data().price;
@@ -107,70 +129,70 @@ function clickME(heartID) {
         })
 }
 
-function addLikesToUser(heartID) {
-    // DocumentReference messageRef = db
-    // .collection("rooms").document("roomA")
-    // .collection("messages").document("message1");
-    // function fireAddStudentToClassroom(studentUserId, classroomId) {
+// function addLikesToUser(heartID) {
+//     // DocumentReference messageRef = db
+//     // .collection("rooms").document("roomA")
+//     // .collection("messages").document("message1");
+//     // function fireAddStudentToClassroom(studentUserId, classroomId) {
 
-    //     var db = firebase.firestore();
-    //     var studentsClassroomRef =
-    //         db.collection('student_class').doc(classroomId)
-    //           .collection('students');
+//     //     var db = firebase.firestore();
+//     //     var studentsClassroomRef =
+//     //         db.collection('student_class').doc(classroomId)
+//     //           .collection('students');
     
-    //     studentsClassroomRef
-    //         .doc(studentUserId)
-    //         .set({})
-    //         .then(function () {
-    //             console.log('Document Added ');
-    //         })
-    //         .catch(function (error) {
-    //             console.error('Error adding document: ', error);
-    //         });
-    // }
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            // User logged in already or has just logged in.
-            itemSelected = db.collection("Items");
-            currentUser = db.collection("users").doc(user.uid).collection("Likes");
-            var itemName = document.getElementById('ctitle' + heartID).innerHTML;
-            var itemText = document.getElementById('ctext' + heartID).innerHTML;
-            var itemImage = document.getElementById('cimage' + heartID).src;
-            var itemPrice = document.getElementById('cprice' + heartID).innerHTML;
-            console.log(itemName, itemText, itemImage, itemPrice);
-            currentUser.add({
-                name: itemName,
-                description: itemText,
-                image: itemImage,
-                price: itemPrice
-            })
-            /* db.collection("Items").get()
-                .then(snap => {
-                    var i = 1;
-                    snap.forEach(doc => {    //iterate thru each doc
-                        // console.log(itemName[i - 1].innerHTML);
-                        // console.log(itemText[i - 1].innerHTML);
-                        // console.log(itemPrice[i - 1].innerHTML);
-                        // console.log(hearts[i - 1].children, hearts[i - 1].previousSibling);
-                        // console.log(document.getElementById('ctitle' + i));
-                        // console.log(document.getElementById('ctext' + i));
-                        // console.log(document.getElementById('cimage' + i));
-                        i++;
-                    })
-                }) */
-            // console.log(itemName[0], itemDescription[0], itemPrice[0]);
-            // currentUser.get()
-            // .then(userDoc => {
-            //     console.log(userDoc.data());
-            // })
-            // currentUser.add({
-            //     likes: 
-            // })
-        } else {
-            // User not logged in or has just logged out.
-        }
-    });
-}
+//     //     studentsClassroomRef
+//     //         .doc(studentUserId)
+//     //         .set({})
+//     //         .then(function () {
+//     //             console.log('Document Added ');
+//     //         })
+//     //         .catch(function (error) {
+//     //             console.error('Error adding document: ', error);
+//     //         });
+//     // }
+//     firebase.auth().onAuthStateChanged((user) => {
+//         if (user) {
+//             // User logged in already or has just logged in.
+//             itemSelected = db.collection("Items");
+//             currentUser = db.collection("users").doc(user.uid).collection("Likes");
+//             var itemName = document.getElementById('ctitle' + heartID).innerHTML;
+//             var itemText = document.getElementById('ctext' + heartID).innerHTML;
+//             var itemImage = document.getElementById('cimage' + heartID).src;
+//             var itemPrice = document.getElementById('cprice' + heartID).innerHTML;
+//             console.log(itemName, itemText, itemImage, itemPrice);
+//             currentUser.add({
+//                 name: itemName,
+//                 description: itemText,
+//                 image: itemImage,
+//                 price: itemPrice
+//             })
+//             /* db.collection("Items").get()
+//                 .then(snap => {
+//                     var i = 1;
+//                     snap.forEach(doc => {    //iterate thru each doc
+//                         // console.log(itemName[i - 1].innerHTML);
+//                         // console.log(itemText[i - 1].innerHTML);
+//                         // console.log(itemPrice[i - 1].innerHTML);
+//                         // console.log(hearts[i - 1].children, hearts[i - 1].previousSibling);
+//                         // console.log(document.getElementById('ctitle' + i));
+//                         // console.log(document.getElementById('ctext' + i));
+//                         // console.log(document.getElementById('cimage' + i));
+//                         i++;
+//                     })
+//                 }) */
+//             // console.log(itemName[0], itemDescription[0], itemPrice[0]);
+//             // currentUser.get()
+//             // .then(userDoc => {
+//             //     console.log(userDoc.data());
+//             // })
+//             // currentUser.add({
+//             //     likes: 
+//             // })
+//         } else {
+//             // User not logged in or has just logged out.
+//         }
+//     });
+// }
 
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {
