@@ -51,6 +51,10 @@
     color: magenta;
 }
 
+.rounded-circle {
+  max-width: 100%;
+}
+
 body
 {
   margin: 0;
