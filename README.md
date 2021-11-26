@@ -24,7 +24,7 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── README.md                # Text file outlining the contents of the project folder
-├── Sign-Up Page.html        #
+├──       #
 ├──
 ├──
 ├──
@@ -45,6 +45,8 @@ It has the following subfolders and files:
 ├── data                     # Folder for data files used to populate firebase
 ├── images                   # Folder for images
     /examplepicture.jpg      #
+├── old-designs              # Previous iterations of various webpages that are no longer in use
+    /index.html
 ├── scripts                  # Folder for scripts, including both bootstrap/firebase scripts as well as custom ones
     /sameplescript.js        #
 ├── styles                   # Folder for custom styles that aren't part of firebase or bootstrap
