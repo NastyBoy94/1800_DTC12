@@ -11,8 +11,6 @@ function insertNameDontTouch() {
                 .then(userDoc => {
                     var user_Name = userDoc.data().name;
                     console.log(user_Name);
-                    //method #1:  insert with html only
-                    //document.getElementById("name-goes-here").innerText = n;    //using javascript
                     //method #2:  insert using jquery
                     $("#name-goes-here").text(user_Name);                         //using jquery
                 })
