@@ -6,20 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/search.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>SmartShopper - Search</title>
 
     <!-- Firebase CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
-    <script src="/scripts/firebaseAPI.js"></script>
-    <script src="/scripts/writeLikes.js"></script>
+    <script src="./scripts/firebaseAPI.js"></script>
+    <script src="./scripts/writeLikes.js"></script>
 </head>
 <body>
     <nav role="navigation" class="navbar">
@@ -79,12 +77,12 @@
         <div class="card py-2 mx-2" style="width: 18rem;">
             <img class="card-image card-img-top" src=" ..." alt="...">
             <div class="card-body">
-                <i class="fa fa-heart fa_custom" onclick="addLikesToUser()"></i>
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p>
                 <p class="card-price">x</p>
-                <a class="btn btn-primary card-href"></a>
+                <a class="btn btn-primary card-href">Add to Cart</a>
+                <i class="fa fa-heart fa_custom" onclick="addLikesToUser()"></i>
             </div>
         </div>
     </template>
@@ -93,9 +91,7 @@
         <h3>Recommended for you</h3>
         <!-- Here is container for cards  -->
         <div class="container">
-            <div id="Items-go-here" class="row row-cols-auto">
-
-            </div>
+            <div id="Items-go-here" class="row row-cols-auto"></div>
         </div>
     </div>
     <!-- <div id="search-info">
