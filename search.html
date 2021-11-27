@@ -195,6 +195,19 @@
                 })
         }
 
+        async function csvToConsole() {
+            const response = await fetch('./data/apparel.csv');
+            const data = await response.text();
+            const list = data.split('\n').slice(1);
+            list.forEach(row => {
+                /* namely the customer ID, price, item name, and description */
+                let re = /(([A-Z]|[a-z]|[0-9]|-|\s|\.|:|\/|\_|\@)*,{1}|("{1}[^"]*"{1}),{1})/;
+                let columns = row.split(re);
+                console.log(columns[5]);
+                console.log(columns);
+            });
+        }
+
         async function addCSVData() {
             const response = await fetch('./data/apparel.csv');
             const data = await response.text();
