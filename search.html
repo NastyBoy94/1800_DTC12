@@ -47,7 +47,7 @@
                 </div>
                 <br>
                 <li style="color:black">Sort by:</li>
-                <div class="sort-by">
+                <div class="sort-by"> <!-- sorts search results based on desired criteria-->
                     <a href="#" onclick="clearcards('Items-go-here'), filterCardsbyPrice('Items')"><li>Price</li></a>
                     <a href="#" onclick="clearcards('Items-go-here'), filterCardsbyReviews('Items')"><li>Review</li></a>
                     <a href="#" onclick="clearcards('Items-go-here'), filterCardsbyAvail('Items')"><li>Availability</li></a>
@@ -113,6 +113,7 @@
             document.getElementById(elementID).innerHTML = "";
         }
 
+        // populate cards above with items and info from Firebase "Items" collection
         function displayCards(collection) {
             let CardTemplate = document.getElementById("CardTemplate");
 
@@ -152,6 +153,7 @@
                 })
         }
 
+        // filter items by price from lowest to highest
         function filterCardsbyPrice(collection) {
             let CardTemplate = document.getElementById("CardTemplate");
 
@@ -191,6 +193,7 @@
                 })
         }
 
+        // filter items by availability and display only available items
         function filterCardsbyAvail(collection) {
             let CardTemplate = document.getElementById("CardTemplate");
 
@@ -230,6 +233,7 @@
                 })
         }
 
+        // filters items by reviews from high to low before populating cards
         function filterCardsbyReviews(collection) {
             let CardTemplate = document.getElementById("CardTemplate");
 
