@@ -41,15 +41,16 @@
             <ul id="menu">
                 <div class="menu-settings">
                     <a href="#"><li>Home</li></a>
+                    <a href="#"><li>Setting</li></a>
                     <a href="/profile_page2.html"><li>Account</li></a>
                     <a href="/checkout.html"><li>Cart</li></a>
                 </div>
                 <br>
                 <li style="color:black">Sort by:</li>
                 <div class="sort-by">
-                    <a href="#"><li>Price</li></a>
-                    <a href="#"><li>Review</li></a>
-                    <a href="#"><li>Shipping</li></a>
+                    <a href="#" onclick="clearcards('Items-go-here'), filterCardsbyPrice('Items')"><li>Price</li></a>
+                    <a href="#" onclick="clearcards('Items-go-here'), filterCardsbyReviews('Items')"><li>Review</li></a>
+                    <a href="#" onclick="clearcards('Items-go-here'), filterCardsbyAvail('Items')"><li>Availability</li></a>
                 </div>
             </ul>
         </div>
@@ -83,13 +84,15 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p>
                 <p class="card-price">x</p>
+                <p class="card-review">x</p>
+                <p class="card-avail">x</p>
                 <a class="btn btn-primary card-href"></a>
             </div>
         </div>
     </template>
 
     <div class="container">
-        <h3>Recommended for you</h3>
+        <h3>Search Results</h3>
         <!-- Here is container for cards  -->
         <div class="container">
             <div id="Items-go-here" class="row row-cols-auto">
@@ -97,63 +100,7 @@
             </div>
         </div>
     </div>
-    <!-- <div id="search-info">
-        <div class="sorted-by">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Price
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Reviews
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
-                <label class="form-check-label" for="flexRadioDefault3">
-                    Shipping Time
-                </label>
-            </div>
-        </div>
-        <br>
-        <div class="search-item">
-            <div class="search-item-picture">
-                <img src="./images/hydro_flask.jpg"/>
-            </div>
-            <div class="search-item-info">
-                <i class="fa fa-heart fa_custom" onclick="addUserLikes()"></i>
-                <h2>Hydro Flask</h2>
-                <p>A really good water bottle.</p>
-            </div>
-        </div>
-        <p style="color:black">Shipping Time: 2 hours</p>
-        <p style="color:black">$20.99</p>
-        <div class="search-item">
-            <div class="search-item-picture">
-                <img src="./images/Nalgene-Retro.jpg"/>
-            </div>
-            <div class="search-item-info">
-                <h2>Nalgene Bottle</h2>
-                <p>Another really good water bottle.</p>
-            </div>
-        </div>
-        <p style="color:black">Shipping Time: 6 hours</p>
-        <p style="color:black">$30.99</p>
-        <div class="search-item">
-            <div class="search-item-picture">
-                <img src="./images/Well's_big_water.jpg"/>
-            </div>
-            <div class="search-item-info">
-                <h2>Well's Water Bottle</h2>
-                <p>Well...this is also a good water bottle.</p>
-            </div>
-        </div>
-        <p style="color:black">Shipping Time: 15 hours</p>
-        <p style="color:black">$15.99</p>
-    </div> -->
+
     <script>
         //------------------------------------------------------------------
         // Read from firestore to get collection Items
@@ -162,6 +109,10 @@
         // update thet title and text, and other ID's
         // attach it to the gallery div
         //-------------------------------------------------------------------
+        function clearcards(elementID) {
+            document.getElementById(elementID).innerHTML = "";
+        }
+
         function displayCards(collection) {
             let CardTemplate = document.getElementById("CardTemplate");
 
@@ -173,6 +124,8 @@
                         var details = doc.data().description;
                         var cost = doc.data().price;
                         var imgURL = doc.data().image;
+                        var avail = doc.data().availability;
+                        var review = doc.data().ratings;
                         let newcard = CardTemplate.content.cloneNode(true);
 
                         //update title and text and image
@@ -180,12 +133,133 @@
                         newcard.querySelector('.card-text').innerHTML = details;
                         newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
                         newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
+                        newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
+                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
 
                         //give unique ids to all elements for future use
                         newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
                         newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
                         newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
                         newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
+                        newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
+                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
+                        newcard.querySelector('.fa').setAttribute("id", i);
+
+                        //attach to gallery
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                        i++;
+                    })
+                })
+        }
+
+        function filterCardsbyPrice(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
+
+            db.collection(collection).where("price", ">", "0").orderBy("price").get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => {    //iterate thru each doc
+                        var title = doc.data().name;
+                        var details = doc.data().description;
+                        var cost = doc.data().price;
+                        var imgURL = doc.data().image;
+                        var avail = doc.data().availability;
+                        var review = doc.data().ratings;
+                        let newcard = CardTemplate.content.cloneNode(true);
+
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = details;
+                        newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
+                        newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
+                        newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
+                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+                        newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
+                        newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
+                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
+                        newcard.querySelector('.fa').setAttribute("id", i);
+
+                        //attach to gallery
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                        i++;
+                    })
+                })
+        }
+
+        function filterCardsbyAvail(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
+
+            db.collection(collection).where("availability", "==", "yes").get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => {    //iterate thru each doc
+                        var title = doc.data().name;
+                        var details = doc.data().description;
+                        var cost = doc.data().price;
+                        var imgURL = doc.data().image;
+                        var avail = doc.data().availability;
+                        var review = doc.data().ratings;
+                        let newcard = CardTemplate.content.cloneNode(true);
+
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = details;
+                        newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
+                        newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
+                        newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
+                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+                        newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
+                        newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
+                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
+                        newcard.querySelector('.fa').setAttribute("id", i);
+
+                        //attach to gallery
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                        i++;
+                    })
+                })
+        }
+
+        function filterCardsbyReviews(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
+
+            db.collection(collection).orderBy("ratings", "desc").get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => {    //iterate thru each doc
+                        var title = doc.data().name;
+                        var details = doc.data().description;
+                        var cost = doc.data().price;
+                        var imgURL = doc.data().image;
+                        var avail = doc.data().availability;
+                        var review = doc.data().ratings;
+                        let newcard = CardTemplate.content.cloneNode(true);
+
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = details;
+                        newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
+                        newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
+                        newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
+                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+                        newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
+                        newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
+                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
                         newcard.querySelector('.fa').setAttribute("id", i);
 
                         //attach to gallery
