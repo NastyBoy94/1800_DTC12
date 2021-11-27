@@ -85,7 +85,6 @@
                     card's content.</p>
                 <p class="card-price">x</p>
                 <p class="card-review">x</p>
-                <p class="card-avail">x</p>
                 <a class="btn btn-primary card-href"></a>
             </div>
         </div>
@@ -125,7 +124,6 @@
                         var details = doc.data().description;
                         var cost = doc.data().price;
                         var imgURL = doc.data().image;
-                        var avail = doc.data().availability;
                         var review = doc.data().ratings;
                         let newcard = CardTemplate.content.cloneNode(true);
 
@@ -135,7 +133,6 @@
                         newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
                         newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
                         newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
-                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
 
                         //give unique ids to all elements for future use
                         newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -143,7 +140,6 @@
                         newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
                         newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
                         newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
-                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
                         newcard.querySelector('.fa').setAttribute("id", i);
 
                         //attach to gallery
@@ -165,7 +161,6 @@
                         var details = doc.data().description;
                         var cost = doc.data().price;
                         var imgURL = doc.data().image;
-                        var avail = doc.data().availability;
                         var review = doc.data().ratings;
                         let newcard = CardTemplate.content.cloneNode(true);
 
@@ -175,7 +170,6 @@
                         newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
                         newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
                         newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
-                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
 
                         //give unique ids to all elements for future use
                         newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -183,7 +177,6 @@
                         newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
                         newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
                         newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
-                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
                         newcard.querySelector('.fa').setAttribute("id", i);
 
                         //attach to gallery
@@ -205,7 +198,6 @@
                         var details = doc.data().description;
                         var cost = doc.data().price;
                         var imgURL = doc.data().image;
-                        var avail = doc.data().availability;
                         var review = doc.data().ratings;
                         let newcard = CardTemplate.content.cloneNode(true);
 
@@ -215,7 +207,6 @@
                         newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
                         newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
                         newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
-                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
 
                         //give unique ids to all elements for future use
                         newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -223,7 +214,6 @@
                         newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
                         newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
                         newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
-                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
                         newcard.querySelector('.fa').setAttribute("id", i);
 
                         //attach to gallery
@@ -245,7 +235,6 @@
                         var details = doc.data().description;
                         var cost = doc.data().price;
                         var imgURL = doc.data().image;
-                        var avail = doc.data().availability;
                         var review = doc.data().ratings;
                         let newcard = CardTemplate.content.cloneNode(true);
 
@@ -255,7 +244,6 @@
                         newcard.querySelector('.card-price').innerHTML = "CAD " + cost;
                         newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
                         newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
-                        newcard.querySelector('.card-avail').innerHTML = "availability:  " + avail;
 
                         //give unique ids to all elements for future use
                         newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -263,7 +251,6 @@
                         newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
                         newcard.querySelector('.card-price').setAttribute("id", "cprice" + i);
                         newcard.querySelector('.card-review').setAttribute("id", "creview" + i);
-                        newcard.querySelector('.card-avail').setAttribute("id", "cavail" + i);
                         newcard.querySelector('.fa').setAttribute("id", i);
 
                         //attach to gallery
