@@ -24,6 +24,61 @@ function searchinput(searchparam) {
 }
 
 
+
+function populateCardsDynamically(Docs) {
+    let CardTemplate = document.getElementById("CardTemplate");
+    let hikeCardGroup = document.getElementById("hikeCardGroup");
+    //console.log(Docs.size);
+    while (hikeCardGroup.firstChild){
+        hikeCardGroup.removeChild(hikeCardGroup.firstChild)
+    }
+    Docs.forEach(doc => { //iterate through all documents in the Items collection
+         //gets the name field
+        var title = doc.data().name;
+        var details = doc.data().description;
+        var cost = doc.data().price;
+        var imgURL = doc.data().image;
+
+
+        let newcard = CardTemplate.content.cloneNode(true);
+
+        newcard.querySelector('.card-title').innerHTML = title;
+        newcard.querySelector('.card-text').innerHTML = details;
+        newcard.querySelector('.card-price').innerHTML = "CAD $" + cost;
+        newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
+        
+
+        // testHikeCard.querySelector('.card-title').innerHTML = ItemName;
+        // testHikeCard.querySelector('.card-text').innerHTML = details;
+        // // testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
+        // // testHikeCard.querySelector('i').onclick = () => addLikes(hikeID);
+        // testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
+        hikeCardGroup.appendChild(newcard);
+
+
+
+    })
+}
+
+
+function displaySearch() {
+    testSearch = document.getElementById('searchQueryInput').value;
+    if (testSearch != null && testSearch != "") {
+        db.collection("Items").where("name", "==", testSearch)
+            .get()
+            .then(searchResult => {
+                size = searchResult.size;
+                console.log("search");
+                populateCardsDynamically(searchResult);
+            })
+    } else {
+        db.collection("Items").get()
+            .then(allHikes => {
+                populateCardsDynamically(allHikes);
+            })
+    }
+}
+    displaySearch();
 // haev an event listent that looks up the search query submit, once that submit event is trigger, call a function
 // within that function, input to search 
 // when it seems someone click on searchquerysubmit it will call get all function
