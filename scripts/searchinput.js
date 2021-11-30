@@ -37,6 +37,7 @@ function populateCardsDynamically(Docs) {
         var title = doc.data().name;
         var details = doc.data().description;
         var cost = doc.data().price;
+        var review = doc.data().ratings;
         var imgURL = doc.data().image;
         var review = doc.data().ratings;
 
@@ -49,12 +50,6 @@ function populateCardsDynamically(Docs) {
         newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
         newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
         
-
-        // testHikeCard.querySelector('.card-title').innerHTML = ItemName;
-        // testHikeCard.querySelector('.card-text').innerHTML = details;
-        // // testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
-        // // testHikeCard.querySelector('i').onclick = () => addLikes(hikeID);
-        // testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
         hikeCardGroup.appendChild(newcard);
 
 
