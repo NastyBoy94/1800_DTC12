@@ -27,7 +27,7 @@ function searchinput(searchparam) {
 
 function populateCardsDynamically(Docs) {
     let CardTemplate = document.getElementById("CardTemplate");
-    let hikeCardGroup = document.getElementById("hikeCardGroup");
+    let hikeCardGroup = document.getElementById("Items-go-here");
     //console.log(Docs.size);
     while (hikeCardGroup.firstChild){
         hikeCardGroup.removeChild(hikeCardGroup.firstChild)
@@ -62,7 +62,7 @@ function populateCardsDynamically(Docs) {
 
 
 function displaySearch() {
-    testSearch = document.getElementById('searchQueryInput').value;
+    testSearch = document.getElementById("searchQueryInput").value;
     if (testSearch != null && testSearch != "") {
         db.collection("Items").where("name", "==", testSearch)
             .get()
@@ -78,7 +78,6 @@ function displaySearch() {
             })
     }
 }
-    displaySearch();
 // haev an event listent that looks up the search query submit, once that submit event is trigger, call a function
 // within that function, input to search 
 // when it seems someone click on searchquerysubmit it will call get all function
