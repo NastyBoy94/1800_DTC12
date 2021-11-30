@@ -38,6 +38,7 @@ function populateCardsDynamically(Docs) {
         var details = doc.data().description;
         var cost = doc.data().price;
         var imgURL = doc.data().image;
+        var review = doc.data().ratings;
 
 
         let newcard = CardTemplate.content.cloneNode(true);
@@ -46,6 +47,7 @@ function populateCardsDynamically(Docs) {
         newcard.querySelector('.card-text').innerHTML = details;
         newcard.querySelector('.card-price').innerHTML = "CAD $" + cost;
         newcard.querySelector('.card-image').src = imgURL;  //hikes.jpg
+        newcard.querySelector('.card-review').innerHTML = "ratings:  " + review + "/5";
         
 
         // testHikeCard.querySelector('.card-title').innerHTML = ItemName;
