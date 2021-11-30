@@ -39,6 +39,7 @@ function populateCardsDynamically(Docs) {
         var cost = doc.data().price;
         var review = doc.data().ratings;
         var imgURL = doc.data().image;
+        var review = doc.data().ratings;
 
 
         let newcard = CardTemplate.content.cloneNode(true);
