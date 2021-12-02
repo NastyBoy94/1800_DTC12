@@ -1,3 +1,4 @@
+/* style for body */
 body
 {
   margin: 0;
@@ -10,7 +11,7 @@ body
   font-family: 'Roboto', Arial, sans-serif;
 }
 
-
+/* grid for navbar */
 .navbar {
   display: grid;
   grid-template-columns: 3fr, 7fr;
@@ -18,11 +19,11 @@ body
   grid-template-areas:
   "menu navbar";
 }
-
+/* searchbar area */
 .searchBar {
   grid-area: navbar;
 }
-
+/* hamburger menu style */
 #menuToggle
 {
   display: block;
@@ -163,13 +164,13 @@ body
   transform: none;
 }
 
-  
+  /* logo style */
   .wrapper {
     width: 100%;
     max-width: 31.25rem;
     position: relative;
     right: 50%;
-}
+  }
 
   .label {
     font-size: .625rem;
@@ -179,7 +180,7 @@ body
     margin-bottom: 1rem;
     color: magenta;
   }
-  
+  /* searchbar style */
   .searchBar {
     width: 200%;
     display: flex;
@@ -188,7 +189,7 @@ body
     /* position: relative;
     right: 50%; */
   }
-  
+  /* search input style */
   #searchQueryInput {
     width: 100%;
     height: 2.8rem;

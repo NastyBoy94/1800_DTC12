@@ -1,3 +1,4 @@
+// location of firebase to read/write from
 var firebaseConfig = {
     apiKey: "AIzaSyA5yOcqB3Iu-HnMANfNQiNwV0vpntNGdd8",
     authDomain: "dtc012-comp1800.firebaseapp.com",

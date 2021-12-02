@@ -15,7 +15,6 @@ Technologies used for this project:
 * Firebase
 * GitHub
 * Trello
-* BCIT Learning Hub
 	
 ## Content
 Content of the project folder:
