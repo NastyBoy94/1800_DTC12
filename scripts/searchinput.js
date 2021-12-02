@@ -57,7 +57,7 @@ function populateCardsDynamically(Docs) {
     })
 }
 
-
+// displays items matching input search term, or display all items if no search term
 function displaySearch() {
     testSearch = document.getElementById("searchQueryInput").value;
     if (testSearch != null && testSearch != "") {

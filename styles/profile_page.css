@@ -1,3 +1,4 @@
+/* change colour of several buttons to colour closer to magenta */
 .form-control:focus {
     box-shadow: none;
     border-color: #BA68C8
@@ -54,7 +55,7 @@
 .rounded-circle {
   max-width: 100%;
 }
-
+/* style for entire body */
 body
 {
   margin: 0;
@@ -65,7 +66,7 @@ body
   /* font-family: "Avenir Next", "Avenir", sans-serif; */
   font-family: 'Roboto', Arial, sans-serif;
 }
-
+/* style for search bar, hamburger menu */
 #menuToggle
 {
   z-index: 2;
@@ -214,7 +215,7 @@ body
   transform: none;
 }
 
-
+/* style for SmartShopper logo */
   .wrapper {
     width: 100%;
     max-width: 31.25rem;
@@ -231,7 +232,7 @@ body
     color: magenta;
     margin-left: 85%;
   }
-
+/* searchbar style */
   .searchBar {
     width: 85%;
     display: flex;
@@ -264,7 +265,7 @@ body
 #searchQuerySubmit:hover {
     cursor: pointer;
 }
-
+/* more logo style */
 .fa_custom {
     color:rgba(255, 0, 0, 0.377);
     position: relative;
@@ -295,7 +296,7 @@ body
   margin-top: auto;
   margin-bottom: auto;
 }
-
+/* style for item ratings */
 .rating {
   grid-column: 2/3;
   padding: none;
@@ -306,7 +307,7 @@ body
   display: block;
   margin: 0;
 }
-
+/* style for item pictures */
 .item-picture {
   grid-column: 1/3;
   border-radius: 5px;
@@ -323,19 +324,19 @@ body
   max-height: 300px;
   float: center;
 }
-
+/* style for item description section */
 .item-description {
   color: black;
   grid-column: 1/3;
 }
-
+/* style for item price section */
 .item-price {
   color: black;
   grid-column: 2/3;
   padding: 3%;
   margin-left: auto;
 }
-
+/* more style for item info */
 #item-info h3 {
   color: black;
   grid-column: 1/2;
@@ -359,7 +360,7 @@ body
   margin-right: 5%;
   grid-template-columns: 6fr 4fr;
 }
-
+/* style for sort by section */
 .sorted-by {
   color: black;
   grid-column: 1/3;
@@ -370,7 +371,7 @@ body
 .form-check {
   margin-left: 2%;
 }
-
+/* style for search item section */
 .search-item {
   display: grid;
   color: black;
@@ -401,7 +402,7 @@ body
   display: block;
   margin-left: auto;
 }
-
+/* style for items displayed section */
 .container {
   display: grid;
   margin-left: 6%;
