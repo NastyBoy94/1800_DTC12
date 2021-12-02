@@ -1,3 +1,4 @@
+/* body style */
 body
 {
   margin: 0;
@@ -10,7 +11,7 @@ body
   font-family: 'Roboto', Arial, sans-serif;
 }
 
-
+/* menu style and layout */
 .dropdown_menu {
   display: grid;
   grid-template-columns: 3fr, 7fr;
@@ -160,7 +161,7 @@ body
   transform: none;
 }
 
-  
+  /* logo */
   .wrapper {
     width: 100%;
     max-width: 31.25rem;
@@ -176,7 +177,7 @@ body
     margin-bottom: 1rem;
     color: magenta;
   }
-  
+  /* searchbar style and layout */
   .searchBar {
     width: 200%;
     display: flex;
@@ -213,7 +214,7 @@ body
   .navbar-nav {
     margin-left: auto;
 }
-
+/* welcome msg layout */
 .welcome {
     display: grid;
     grid-template-rows: 1fr, 3fr, 1fr, 1fr, 1fr, 1fr;
@@ -226,7 +227,7 @@ body
     "login";
 }
 
-
+/* login section style */
 .login_prompt {
     grid-area: login;
     text-align: center;
@@ -236,7 +237,7 @@ body
 .login_msg {
     font-weight: normal;
 }
-
+/* sign up section style */
 .signup_prompt {
     grid-area: signup;
     text-align: center;
@@ -249,7 +250,7 @@ body
 .login_btn {
     margin: 5px
 }
-
+/* welcome message style */
 .greeting {
     grid-area: greeting;
     text-align: center;
