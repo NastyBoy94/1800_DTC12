@@ -1,3 +1,4 @@
+/* grid for body section */
 body {
     display: grid;
     grid-template-rows: 1fr 19fr;
@@ -13,7 +14,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
 }
 
-
+/* navbar display */
 .navbar {
   display: grid;
   grid-template-columns: 3fr, 7fr;
@@ -22,11 +23,11 @@ body {
   "menu navbar";
   grid-area: template;
 }
-
+/* keep search bar in navbar area */
 .searchBar {
   grid-area: navbar;
 }
-
+/* hamburger menu placement */
 #menuToggle
 {
   display: block;
@@ -39,7 +40,7 @@ body {
   -webkit-user-select: none;
   user-select: none;
 }
-
+/* hamburger menu style  */
 #menuToggle a
 {
   text-decoration: none;
@@ -47,13 +48,13 @@ body {
   
   transition: color 0.3s ease;
 }
-
+/* menu items when hovered */
 #menuToggle a:hover
 {
   color: magenta;
 }
 
-
+/* menu items area  */
 #menuToggle input
 {
   display: block;
@@ -169,14 +170,7 @@ body {
   transform: none;
 }
 
-  
-  .wrapper {
-    width: 100%;
-    max-width: 31.25rem;
-    position: relative;
-    right: 50%;
-}
-
+/* SmartShopper logo style */
   .label {
     font-size: .625rem;
     font-weight: 400;
@@ -187,7 +181,7 @@ body {
     position: relative;
     left: 55%;
   }
-  
+  /* search bar style  */
   .searchBar {
     width: 85%;
     display: flex;
@@ -220,14 +214,14 @@ body {
 #searchQuerySubmit:hover {
     cursor: pointer;
 }
-
+/* heart icon */
 .fa_custom {
     color:rgba(255, 0, 0, 0.377);
     position: relative;
     left: 10%;
     top: 15px;
 }
-
+/* heart icon hover  */
 .fa_custom:hover {
     color: red;
 }
