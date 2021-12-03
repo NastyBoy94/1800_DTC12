@@ -217,8 +217,3 @@ function insertName() {
         }
     });
 }
-
-function itemPopulate() {
-    // Populate item.html file with product information.
-    $("#item-name").text("card-title");
-}
