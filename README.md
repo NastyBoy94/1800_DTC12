@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-SmartShopper is a one stop shopping tool that helps users that filters stores by reviews, price, shipping, and availability so they do not need to do any research when shopping online.
+SmartShopper is a one stop shopping tool that helps users that filters stores by reviews, price, shipping, and availability so they do not need to do any research when shopping online. Please use iPhone 6/7/8 Plus resolution for the best viewing experience.
 
 <------------------------- Please use the iPhone 6/7/8+ resolution when viewing our websites ----------------------->
 	
@@ -17,7 +17,6 @@ Technologies used for this project:
 * Firebase
 * GitHub
 * Trello
-* BCIT Learning Hub
 	
 ## Content
 Content of the project folder:
@@ -69,8 +68,4 @@ It has the following subfolders and files:
     /sign-up.css             # Style sheet for our login page, login.html
     /style.css               # template for searchbar style
     /template.css            # old template style sheet, no longer in use
-
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
 
