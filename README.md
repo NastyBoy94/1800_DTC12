@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-SmartShopper is a one stop shopping tool that helps users that filters stores by reviews, price, shipping, and availability so they do not need to do any research when shopping online.
+SmartShopper is a one stop shopping tool that helps users that filters stores by reviews, price, shipping, and availability so they do not need to do any research when shopping online. Please use iPhone 6/7/8 Plus resolution for the best viewing experience.
 	
 ## Technologies
 Technologies used for this project:
@@ -47,8 +47,4 @@ It has the following subfolders and files:
     /sameplescript.js        #
 ├── styles                   # Folder for custom styles that aren't part of firebase or bootstrap
     /samplestyle.css         #
-
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
 
