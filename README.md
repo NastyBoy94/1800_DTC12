@@ -69,3 +69,5 @@ It has the following subfolders and files:
     /style.css               # template for searchbar style
     /template.css            # old template style sheet, no longer in use
 
+## References
+* shopifypartners product csvs available at https://github.com/shopifypartners/product-csvs
